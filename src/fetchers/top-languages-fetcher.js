@@ -39,7 +39,7 @@ async function fetchTopLanguages(username, langsCount = 5, exclude_repo = []) {
 
   langsCount = clampValue(parseInt(langsCount), 1, 10);
 
-  const res = await retryer(fetcher, { login: "ChengHaoKe" });
+  const res = await retryer(fetcher, { login: username});
 
   if (res.data.errors) {
     logger.error(res.data.errors);
