@@ -5,7 +5,7 @@ require("dotenv").config();
 const fetcher = (variables, token) => {
   return request(
     {
-      query: 
+      query: `
       query userInfo($login: "ChengHaoKe") {
         user(login: $login) {
           # fetch only owner repos & not forks
@@ -25,7 +25,7 @@ const fetcher = (variables, token) => {
           }
         }
       }
-      ,
+      `,
       variables,
     },
     {
