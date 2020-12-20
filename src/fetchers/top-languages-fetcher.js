@@ -5,7 +5,7 @@ require("dotenv").config();
 const fetcher = (variables, token) => {
   return request(
     {
-      query: `
+      query: 
       query userInfo($login: "ChengHaoKe") {
         user(login: $login) {
           # fetch only owner repos & not forks
@@ -25,7 +25,7 @@ const fetcher = (variables, token) => {
           }
         }
       }
-      `,
+      ,
       variables,
     },
     {
@@ -34,7 +34,7 @@ const fetcher = (variables, token) => {
   );
 };
 
-async function fetchTopLanguages(username, langsCount = 10, exclude_repo = []) {
+async function fetchTopLanguages(username, langsCount = 5, exclude_repo = []) {
   if (!username) throw Error("Invalid username");
 
   langsCount = clampValue(parseInt(langsCount), 1, 10);
