@@ -6,7 +6,7 @@ const fetcher = (variables, token) => {
   return request(
     {
       query: 
-      query userInfo($login: "asdfsdf") {
+      query userInfo($login: "ChengHaoKe") {
         user(login: $login) {
           # fetch only owner repos & not forks
           repositories(ownerAffiliations: OWNER, isFork: false, first: 100) {
@@ -39,7 +39,7 @@ async function fetchTopLanguages(username, langsCount = 5, exclude_repo = []) {
 
   langsCount = clampValue(parseInt(langsCount), 1, 10);
 
-  const res = await retryer(fetcher, { login: username });
+  const res = await retryer(fetcher, { login: "ChengHaoKe" });
 
   if (res.data.errors) {
     logger.error(res.data.errors);
